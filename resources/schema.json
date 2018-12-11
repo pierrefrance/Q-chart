@@ -25,7 +25,9 @@
         "notificationChecks": [
           {
             "type": "EmptyData",
-            "data": ["data"],
+            "config": {
+              "fields": ["data"]
+            },
             "priority": {
               "type": "low",
               "value": 1
@@ -33,7 +35,9 @@
           },
           {
             "type": "HasColumnTitles",
-            "data": ["data"],
+            "config": {
+              "fields": ["data"]
+            },
             "priority": {
               "type": "medium",
               "value": 1
@@ -41,19 +45,23 @@
           },
           {
             "type": "TooManyColumns",
-            "data": ["data"],
+            "config": {
+              "fields": ["data"],
+              "options": {
+                "limit": 8
+              }
+            },
             "priority": {
               "type": "medium",
               "value": 2
-            },
-            "options": {
-              "limit": 8
             }
           },
           {
             "type": "ToolEndpoint",
-            "endpoint": "notification/unsupportedDateFormat",
-            "data": ["data"],
+            "config": {
+              "endpoint": "notification/unsupportedDateFormat",
+              "fields": ["data"]
+            },
             "priority": {
               "type": "medium",
               "value": 3
@@ -89,7 +97,9 @@
         "availabilityChecks": [
           {
             "type": "UserHasRole",
-            "role": "expert-chart"
+            "config": {
+              "role": "expert-chart"
+            }
           }
         ]
       }
@@ -141,35 +151,43 @@
             "selectType": "radio",
             "dynamicEnum": {
               "type": "ToolEndpoint",
-              "withData": true,
-              "endpoint": "dynamic-enum/chartType"
+              "config": {
+                "endpoint": "dynamic-enum/chartType",
+                "fields": ["data"]
+              }              
             },
             "availabilityChecks": [
               {
-                "type": "ToolEndpoint",
-                "withData": true,
-                "endpoint": "option-availability/chartType"
+                "type": "ToolEndpoint",  
+                "config": {
+                  "endpoint": "option-availability/chartType",
+                  "fields": ["data", "options.chartType"]
+                }
               }
             ],
             "notificationChecks": [
               {
                 "type": "ToolEndpoint",
-                "endpoint": "notification/shouldBeBarChart",
-                "data": ["data", "options.chartType"],
+                "config": {
+                  "endpoint": "notification/shouldBeBarChart",
+                  "fields": ["data", "options"],
+                  "options": {
+                    "limit": 2
+                  }
+                },
                 "priority": {
                   "type": "medium",
                   "value": 3
-                },
-                "options": {
-                  "limit": 2
                 }
               },
               {
                 "type": "ToolEndpoint",
-                "endpoint": "notification/shouldBeLineChart",
-                "data": ["data", "options.chartType"],
-                "options": {
-                  "limit": 40
+                "config": {
+                  "endpoint": "notification/shouldBeLineChart",
+                  "fields":["data", "options"],
+                  "options": {
+                    "limit": 40
+                  }
                 },
                 "priority": {
                   "type": "medium",
@@ -193,14 +211,18 @@
           "Q:options": {
             "dynamicEnum": {
               "type": "ToolEndpoint",
-              "withData": true,
-              "endpoint": "dynamic-enum/highlightDataSeries"
+              "config": {
+                "endpoint": "dynamic-enum/highlightDataSeries",
+                "fields": ["data"]
+              }
             },
             "availabilityChecks": [
               {
                 "type": "ToolEndpoint",
-                "withData": true,
-                "endpoint": "option-availability/highlightDataSeries"
+                "config": {
+                  "endpoint": "option-availability/highlightDataSeries",
+                  "fields": ["data"]
+                }
               }
             ]
           }
@@ -213,15 +235,19 @@
             "availabilityChecks": [
               {
                 "type": "ToolEndpoint",
-                "withData": true,
-                "endpoint": "option-availability/hideAxisLabel"
+                "config": {
+                  "endpoint": "option-availability/hideAxisLabel",
+                  "fields": ["data"]
+                }
               }
             ],
             "notificationChecks": [
               {
                 "type": "ToolEndpoint",
-                "endpoint": "notification/hideAxisLabel",
-                "data": ["data", "options.hideAxisLabel"],
+                "config": {
+                  "endpoint": "notification/hideAxisLabel",
+                  "fields": ["data", "options.hideAxisLabel"]
+                },
                 "priority": {
                   "type": "medium",
                   "value": 5
@@ -241,8 +267,10 @@
                 "availabilityChecks": [
                   {
                     "type": "ToolEndpoint",
-                    "withData": true,
-                    "endpoint": "option-availability/annotations.first"
+                    "config": {
+                      "endpoint": "option-availability/annotations.first",
+                      "fields": ["data"]
+                    }
                   }
                 ]
               }
@@ -254,8 +282,10 @@
                 "availabilityChecks": [
                   {
                     "type": "ToolEndpoint",
-                    "withData": true,
-                    "endpoint": "option-availability/annotations.last"
+                    "config": {
+                      "endpoint": "option-availability/annotations.last",
+                      "fields": ["data"]
+                    }
                   }
                 ]
               }
@@ -267,8 +297,10 @@
                 "availabilityChecks": [
                   {
                     "type": "ToolEndpoint",
-                    "withData": true,
-                    "endpoint": "option-availability/annotations.max"
+                    "config": {
+                      "endpoint": "option-availability/annotations.max",
+                      "fields": ["data"]
+                    }
                   }
                 ]
               }
@@ -280,8 +312,10 @@
                 "availabilityChecks": [
                   {
                     "type": "ToolEndpoint",
-                    "withData": true,
-                    "endpoint": "option-availability/annotations.min"
+                    "config": {
+                      "endpoint": "option-availability/annotations.min",
+                      "fields": ["data"]
+                    }
                   }
                 ]
               }
@@ -293,8 +327,10 @@
                 "availabilityChecks": [
                   {
                     "type": "ToolEndpoint",
-                    "withData": true,
-                    "endpoint": "option-availability/annotations.diff"
+                    "config": {
+                      "endpoint": "option-availability/annotations.diff",
+                      "fields": ["data"]
+                    }
                   }
                 ]
               }
@@ -304,8 +340,10 @@
             "availabilityChecks": [
               {
                 "type": "ToolEndpoint",
-                "withData": true,
-                "endpoint": "option-availability/annotations"
+                "config": {
+                  "endpoint": "option-availability/annotations",
+                  "fields": ["options", "data"]
+                }
               }
             ]
           }
@@ -317,8 +355,10 @@
             "availabilityChecks": [
               {
                 "type": "ToolEndpoint",
-                "withData": true,
-                "endpoint": "option-availability/bar"
+                "config": {
+                  "endpoint": "option-availability/bar",
+                  "fields": ["options", "data"]
+                }
               }
             ]
           },
@@ -331,19 +371,21 @@
                 "notificationChecks": [
                   {
                     "type": "ToolEndpoint",
-                    "endpoint": "notification/shouldBeBars",
-                    "data": [
-                      "data",
-                      "options.chartType",
-                      "options.barOptions.isBarChart",
-                      "options.barOptions.forceBarsOnSmall"
-                    ],
+                    "config": {
+                      "endpoint": "notification/shouldBeBars",
+                      "fields": [
+                        "data",
+                        "options.chartType",
+                        "options.barOptions.isBarChart",
+                        "options.barOptions.forceBarsOnSmall"
+                      ],
+                      "options": {
+                        "limit": 8
+                      }
+                    },
                     "priority": {
                       "type": "medium",
                       "value": 6
-                    },
-                    "options": {
-                      "limit": 8
                     }
                   }
                 ]
@@ -357,8 +399,10 @@
                 "availabilityChecks": [
                   {
                     "type": "ToolEndpoint",
-                    "withData": true,
-                    "endpoint": "option-availability/forceBarsOnSmall"
+                    "config": {
+                      "endpoint": "option-availability/forceBarsOnSmall",
+                      "fields": ["options", "data"]
+                    }
                   }
                 ]
               }
@@ -376,8 +420,10 @@
             "availabilityChecks": [
               {
                 "type": "ToolEndpoint",
-                "withData": true,
-                "endpoint": "option-availability/dateseries"
+                "config": {
+                  "endpoint": "option-availability/dateseries",
+                  "fields": ["options", "data"]
+                }
               }
             ]
           },
@@ -410,8 +456,10 @@
               "Q:options": {
                 "dynamicEnum": {
                   "type": "ToolEndpoint",
-                  "withData": true,
-                  "endpoint": "dynamic-enum/prognosisStart"
+                  "config": {
+                    "endpoint": "dynamic-enum/prognosisStart",
+                    "fields": ["data"]
+                  }
                 }
               }
             }
@@ -424,8 +472,10 @@
             "availabilityChecks": [
               {
                 "type": "ToolEndpoint",
-                "withData": true,
-                "endpoint": "option-availability/line"
+                "config": {
+                  "endpoint": "option-availability/line",
+                  "fields": ["options", "data"]
+                }
               }
             ]
           },
@@ -452,7 +502,9 @@
                 "availabilityChecks": [
                   {
                     "type": "UserHasRole",
-                    "role": "expert-chart"
+                    "config": {
+                      "role": "expert-chart"
+                    }
                   }
                 ]
               }
@@ -465,15 +517,16 @@
                 "availabilityChecks": [
                   {
                     "type": "ToolEndpoint",
-                    "withData": true,
-                    "endpoint": "option-availability/line.isStockChart"
+                    "config": {
+                      "endpoint": "option-availability/line.isStockChart",
+                      "fields": ["options", "data"]
+                    }
                   }
                 ]
               }
             }
           }
         },
-
         "dotplotOptions": {
           "title": "Optionen für Dot Plots",
           "type": "object",
@@ -481,8 +534,10 @@
             "availabilityChecks": [
               {
                 "type": "ToolEndpoint",
-                "withData": true,
-                "endpoint": "option-availability/dotplot"
+                "config": {
+                  "endpoint": "option-availability/dotplot",
+                  "fields": ["options", "data"]
+                }
               }
             ]
           },
@@ -508,8 +563,10 @@
             "availabilityChecks": [
               {
                 "type": "ToolEndpoint",
-                "withData": true,
-                "endpoint": "option-availability/arrow"
+                "config": {
+                  "endpoint": "option-availability/arrow",
+                  "fields": ["options", "data"]
+                }
               }
             ]
           },
@@ -530,12 +587,16 @@
                 "availabilityChecks": [
                   {
                     "type": "UserHasRole",
-                    "role": "expert-chart"
+                    "config": {
+                      "role": "expert-chart"
+                    }
                   },
                   {
                     "type": "ToolEndpoint",
-                    "withData": true,
-                    "endpoint": "option-availability/arrow.colorScheme"
+                    "config": {
+                      "endpoint": "option-availability/arrow.colorScheme",
+                      "fields": ["options", "data"]
+                    }
                   }
                 ]
               }
@@ -549,12 +610,16 @@
             "availabilityChecks": [
               {
                 "type": "UserHasRole",
-                "role": "expert-chart"
+                "config": {
+                  "role": "expert-chart"
+                }
               },
               {
                 "type": "ToolEndpoint",
-                "withData": true,
-                "endpoint": "option-availability/colorOverwrite"
+                "config": {
+                  "endpoint": "option-availability/colorOverwrite",
+                  "fields": ["options", "data"]
+                }
               }
             ],
             "compact": true,

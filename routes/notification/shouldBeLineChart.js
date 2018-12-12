@@ -21,13 +21,13 @@ module.exports = {
   },
   handler: function(request, h) {
     try {
-      const data = request.payload.data[0];
-      const chartType = request.payload.data[1];
+      const data = request.payload.item.data[0];
+      const chartType = request.payload.item.data[1];
       const amountOfRows = array2d.height(data);
       if (
         chartType !== "Line" &&
         data[0] &&
-        amountOfRows > request.payload.options.limit &&
+        amountOfRows > request.payload.item.options.limit &&
         dateSeries.isDateSeriesData(data)
       ) {
         return {

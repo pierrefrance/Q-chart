@@ -20,17 +20,17 @@ module.exports = {
   },
   handler: function(request, h) {
     try {
-      const data = request.payload.data[0];
-      const chartType = request.payload.data[1];
-      const isBarChart = request.payload.data[2];
-      const forceBarsOnSmall = request.payload.data[3];
+      const data = request.payload.item.data[0];
+      const chartType = request.payload.item.data[1];
+      const isBarChart = request.payload.item.data[2];
+      const forceBarsOnSmall = request.payload.item.data[3];
 
       if (
         data[0] &&
         ["Bar", "StackedBar"].includes(chartType) &&
         !isBarChart &&
         !forceBarsOnSmall &&
-        data[0].length > request.payload.options.limit &&
+        data[0].length > request.payload.item.options.limit &&
         !dateSeries.isDateSeriesData(data)
       ) {
         return {

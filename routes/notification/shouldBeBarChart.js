@@ -19,11 +19,11 @@ module.exports = {
   },
   handler: function(request, h) {
     try {
-      const data = request.payload.data[0];
-      const chartType = request.payload.data[1];
+      const data = request.payload.item.data[0];
+      const chartType = request.payload.item.data[1];
       if (
         chartType === "StackedBar" &&
-        data[0].length === request.payload.options.limit
+        data[0].length === request.payload.item.options.limit
       ) {
         return {
           message: {

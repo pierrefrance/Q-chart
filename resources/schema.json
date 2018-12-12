@@ -221,7 +221,7 @@
                 "type": "ToolEndpoint",
                 "config": {
                   "endpoint": "option-availability/highlightDataSeries",
-                  "fields": ["data"]
+                  "fields": ["data", "vegaSpec", "options.chartType"]
                 }
               }
             ]
@@ -237,7 +237,7 @@
                 "type": "ToolEndpoint",
                 "config": {
                   "endpoint": "option-availability/hideAxisLabel",
-                  "fields": ["data"]
+                  "fields": ["data", "vegaSpec"]
                 }
               }
             ],
@@ -269,7 +269,7 @@
                     "type": "ToolEndpoint",
                     "config": {
                       "endpoint": "option-availability/annotations.first",
-                      "fields": ["data"]
+                      "fields": ["data", "options.chartType"]
                     }
                   }
                 ]
@@ -284,7 +284,7 @@
                     "type": "ToolEndpoint",
                     "config": {
                       "endpoint": "option-availability/annotations.last",
-                      "fields": ["data"]
+                      "fields": ["data", "options.chartType"]
                     }
                   }
                 ]
@@ -299,7 +299,7 @@
                     "type": "ToolEndpoint",
                     "config": {
                       "endpoint": "option-availability/annotations.max",
-                      "fields": ["data"]
+                      "fields": ["data", "options.chartType"]
                     }
                   }
                 ]
@@ -314,7 +314,7 @@
                     "type": "ToolEndpoint",
                     "config": {
                       "endpoint": "option-availability/annotations.min",
-                      "fields": ["data"]
+                      "fields": ["data", "options.chartType"]
                     }
                   }
                 ]
@@ -329,7 +329,7 @@
                     "type": "ToolEndpoint",
                     "config": {
                       "endpoint": "option-availability/annotations.diff",
-                      "fields": ["data"]
+                      "fields": ["data", "options.chartType"]
                     }
                   }
                 ]
@@ -342,7 +342,7 @@
                 "type": "ToolEndpoint",
                 "config": {
                   "endpoint": "option-availability/annotations",
-                  "fields": ["options", "data"]
+                  "fields": ["data", "vegaSpec", "options.chartType"]
                 }
               }
             ]
@@ -357,7 +357,7 @@
                 "type": "ToolEndpoint",
                 "config": {
                   "endpoint": "option-availability/bar",
-                  "fields": ["options", "data"]
+                  "fields": ["data", "vegaSpec", "options.chartType"]
                 }
               }
             ]
@@ -373,12 +373,7 @@
                     "type": "ToolEndpoint",
                     "config": {
                       "endpoint": "notification/shouldBeBars",
-                      "fields": [
-                        "data",
-                        "options.chartType",
-                        "options.barOptions.isBarChart",
-                        "options.barOptions.forceBarsOnSmall"
-                      ],
+                      "fields": ["data", "options.limit"],
                       "options": {
                         "limit": 8
                       }
@@ -401,7 +396,7 @@
                     "type": "ToolEndpoint",
                     "config": {
                       "endpoint": "option-availability/forceBarsOnSmall",
-                      "fields": ["options", "data"]
+                      "fields": ["data", "options.chartType", "options.barOptions.isBarChart"]
                     }
                   }
                 ]
@@ -422,7 +417,7 @@
                 "type": "ToolEndpoint",
                 "config": {
                   "endpoint": "option-availability/dateseries",
-                  "fields": ["options", "data"]
+                  "fields": ["data", "vegaSpec", "options.chartType", "options.barOptions.isBarChart", "options.barOptions.forceBarsOnSmall" ]
                 }
               }
             ]
@@ -474,7 +469,7 @@
                 "type": "ToolEndpoint",
                 "config": {
                   "endpoint": "option-availability/line",
-                  "fields": ["options", "data"]
+                  "fields": ["data", "vegaSpec", "options.chartType"]
                 }
               }
             ]
@@ -519,7 +514,7 @@
                     "type": "ToolEndpoint",
                     "config": {
                       "endpoint": "option-availability/line.isStockChart",
-                      "fields": ["options", "data"]
+                      "fields": ["data", "vegaSpec", "options.chartType"]
                     }
                   }
                 ]
@@ -536,7 +531,7 @@
                 "type": "ToolEndpoint",
                 "config": {
                   "endpoint": "option-availability/dotplot",
-                  "fields": ["options", "data"]
+                  "fields": ["data", "vegaSpec", "options.chartType"]
                 }
               }
             ]
@@ -565,7 +560,7 @@
                 "type": "ToolEndpoint",
                 "config": {
                   "endpoint": "option-availability/arrow",
-                  "fields": ["options", "data"]
+                  "fields": ["data", "vegaSpec", "options.chartType"]
                 }
               }
             ]
@@ -595,7 +590,7 @@
                     "type": "ToolEndpoint",
                     "config": {
                       "endpoint": "option-availability/arrow.colorScheme",
-                      "fields": ["options", "data"]
+                      "fields": ["data", "vegaSpec", "options.chartType"]
                     }
                   }
                 ]
@@ -618,7 +613,7 @@
                 "type": "ToolEndpoint",
                 "config": {
                   "endpoint": "option-availability/colorOverwrite",
-                  "fields": ["options", "data"]
+                  "fields": ["data", "vegaSpec", "options.chartType"]
                 }
               }
             ],

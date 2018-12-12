@@ -20,7 +20,7 @@ module.exports = {
   },
   handler: function(request, h) {
     try {
-      const data = request.payload.data[0];
+      const data = request.payload.item.data[0];
       // if this is a correct date series, we do not have a problem
       if (helpers.isDateSeriesData(data)) {
         return null;

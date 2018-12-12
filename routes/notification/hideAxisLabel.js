@@ -22,8 +22,8 @@ module.exports = {
   },
   handler: function(request, h) {
     try {
-      const data = request.payload.data[0];
-      const hideAxisLabel = request.payload.data[1];
+      const data = request.payload.item.data[0];
+      const hideAxisLabel = request.payload.item.data[1];
       if (!hideAxisLabel && dateSeries.isDateSeriesData(data)) {
         return {
           message: {
